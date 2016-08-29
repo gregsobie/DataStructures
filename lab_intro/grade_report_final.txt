@@ -1,0 +1,22 @@
+Grading r3012 by sobie2 committed on Sun Aug 28 16:18:21 CDT 2016
+Monad Autograder
+Testing lab_intro at 2016-08-29 00:28:53
+
+"You think the sky is like a big big plate." ~ Prof. Jiawei Han
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+testBrighten  . [33 pts] - passed
+testCrosshairs  [33 pts] - passed
+testBlendImages [34 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+
