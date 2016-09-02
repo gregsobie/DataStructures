@@ -37,7 +37,7 @@ void sketchify()
     //cout << "Reached line 32" << endl;
 
     // Create out.png
-    PNG* output=new PNG();
+    PNG* output;
     output=setupOutput(width, height);
 
     // Load our favorite color to color the outline
