@@ -1,0 +1,26 @@
+Grading r8040 by sobie2 committed on Tue Sep  6 15:19:42 CDT 2016
+Monad Autograder
+Testing mp2.1 at 2016-09-07 01:15:48
+
+"I hope this code makes sense when I wake up." ~ Jason Cho
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+InvertColorsEven  . . [30 pts] - passed
+FlipLeftEven  . . . . [15 pts] - passed
+FlipLeftOdd . . . . . [15 pts] - passed
+AdjustBrightnessEven  [10 pts] - passed
+AdjustBrightnessEven2 [10 pts] - passed
+AdjustBrightnessEven3 [10 pts] - passed
+ImageMakefile . . . . [10 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+
