@@ -74,7 +74,7 @@ void Room::copy(const Room& other)
 	since, if it only exists on the stack, calling clear 
 	on a copied room would result in deleting memory 
 	that has not been allocated yet. */
-    letters = new Letter[26]; //Allocate memory on heap
+    letters = new Letter[max_letters]; //Allocate memory on heap
     for (int L=0; L<letterCount; L++){
 	letters[L] = other.letters[L];
     }
