@@ -61,7 +61,7 @@ void Room::print()
 void Room::clear()
 {
     if (letters != NULL)
-        delete letters;
+        delete [] letters;
 }
 
 void Room::copy(const Room& other)
@@ -70,5 +70,12 @@ void Room::copy(const Room& other)
     capacity = other.capacity;
     count = other.count;
     letterCount = other.letterCount;
-    letters = other.letters;
+	/* We must allocate memory on the heap for letters
+	since, if it only exists on the stack, calling clear 
+	on a copied room would result in deleting memory 
+	that has not been allocated yet. */
+    letters = new Letter[26]; //Allocate memory on heap
+    for (int L=0; L<letterCount; L++){
+	letters[L] = other.letters[L];
+    }
 }
