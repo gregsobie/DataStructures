@@ -1,8 +1,8 @@
-Grading r9267 by enx-cs225autograder committed on Fri Sep  9 01:44:43 CDT 2016
+Grading r9697 by enx-cs225autograder committed on Sat Sep 10 02:11:12 CDT 2016
 Monad Autograder
-Testing mp2 at 2016-09-10 01:46:21
+Testing mp2 at 2016-09-11 00:16:41
 
-"Simplicity is the ultimate sophistication." ~ Leonardo da Vinci
+"Measuring programming progress by lines of code is like measuring aircraft building progress by weight." ~ Bill Gates
 
 Setting up test environment...
 Error: /dev/shm/cs225student/autograder/temp/mp2/scene.h does not exist.
