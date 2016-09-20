@@ -1,0 +1,114 @@
+Grading r15502 by sobie2 committed on Sun Sep 18 16:25:27 CDT 2016
+Monad Autograder
+Testing lab_inheritance at 2016-09-19 20:07:56
+
+"Anything that can go wrong will go wrong." ~ Murphy's Law
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_virtual_perim  . . . . . . [10 pts] - passed
+test_virtual_area . . . . . . . [10 pts] - passed
+test_destructor (asan)  . . . . [20 pts] - passed
+test_constructor  . . . . . . . [10 pts] - passed
+test_drawable_destructor (asan) [10 pts] - passed
+test_truck_draw . . . . . . . . [10 pts] - passed
+test_slicing  . . . . . . . . . [20 pts] - passed
+test_flower_destructor (asan) . [10 pts] - FAILED:     #3 0x645249 in proxy_test::test_flower_destructor(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x645249)
+    #4 0x4eac18 in monad_shared::unit_test_input::execute(util
+
+
+Total score...
+================================================================
+TOTAL SCORE: 90
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+test_flower_destructor (run under asan) [10 points]
+Result: FAILED:     #3 0x645249 in proxy_test::test_flower_destructor(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x645249)
+    #4 0x4eac18 in monad_shared::unit_test_input::execute(util
+Took unknown time (10000ms timeout)
+Output:
+----------------------------------------------------------------
+Running test_flower_destructor [worth 10 points, output below]
+
+=================================================================
+==26914==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 40 byte(s) in 1 object(s) allocated from:
+    #0 0x41f19b in operator new(unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:62:35
+    #1 0x67ae1b in Flower::Flower(Vector2 const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x67ae1b)
+    #2 0x645249 in proxy_test::test_flower_destructor(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x645249)
+    #3 0x4eac18 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4eac18)
+    #4 0x4cfdc3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4cfdc3)
+    #5 0x4c190e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4c190e)
+    #6 0x4bc0f2 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4bc0f2)
+    #7 0x4b1db7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4b1db7)
+    #8 0x4b0f57 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4b0f57)
+    #9 0x4ad6b9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4ad6b9)
+    #10 0x4ab00e in main (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4ab00e)
+    #11 0x7eff58a36b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+
+Direct leak of 40 byte(s) in 1 object(s) allocated from:
+    #0 0x41f19b in operator new(unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:62:35
+    #1 0x67b11d in Flower::Flower(Vector2 const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x67b11d)
+    #2 0x645249 in proxy_test::test_flower_destructor(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x645249)
+    #3 0x4eac18 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4eac18)
+    #4 0x4cfdc3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4cfdc3)
+    #5 0x4c190e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4c190e)
+    #6 0x4bc0f2 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4bc0f2)
+    #7 0x4b1db7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4b1db7)
+    #8 0x4b0f57 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4b0f57)
+    #9 0x4ad6b9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4ad6b9)
+    #10 0x4ab00e in main (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4ab00e)
+    #11 0x7eff58a36b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+
+Direct leak of 32 byte(s) in 1 object(s) allocated from:
+    #0 0x41f19b in operator new(unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:62:35
+    #1 0x67aeff in Flower::Flower(Vector2 const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x67aeff)
+    #2 0x645249 in proxy_test::test_flower_destructor(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x645249)
+    #3 0x4eac18 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4eac18)
+    #4 0x4cfdc3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4cfdc3)
+    #5 0x4c190e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4c190e)
+    #6 0x4bc0f2 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4bc0f2)
+    #7 0x4b1db7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4b1db7)
+    #8 0x4b0f57 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4b0f57)
+    #9 0x4ad6b9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4ad6b9)
+    #10 0x4ab00e in main (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4ab00e)
+    #11 0x7eff58a36b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+
+Indirect leak of 24 byte(s) in 1 object(s) allocated from:
+    #0 0x41f2eb in operator new[](unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:64:37
+    #1 0x68da2d in Triangle::Triangle(RGBAPixel const&, Vector2 const&, Vector2 const&, Vector2 const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x68da2d)
+    #2 0x67b2bc in Flower::Flower(Vector2 const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x67b2bc)
+    #3 0x645249 in proxy_test::test_flower_destructor(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x645249)
+    #4 0x4eac18 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4eac18)
+    #5 0x4cfdc3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4cfdc3)
+    #6 0x4c190e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4c190e)
+    #7 0x4bc0f2 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4bc0f2)
+    #8 0x4b1db7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4b1db7)
+    #9 0x4b0f57 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4b0f57)
+    #10 0x4ad6b9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4ad6b9)
+    #11 0x4ab00e in main (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x4ab00e)
+    #12 0x7eff58a36b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+
+Indirect leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x41f19b in operator new(unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:62:35
+    #1 0x68da8f in Triangle::Triangle(RGBAPixel const&, Vector2 const&, Vector2 const&, Vector2 const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x68da8f)
+    #2 0x67b2bc in Flower::Flower(Vector2 const&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x67b2bc)
+    #3 0x645249 in proxy_test::test_flower_destructor(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/lab_inheritance_grade/proxy-asan+0x645249)
+    #4 0x4eac18 in monad_shared::unit_test_input::execute(util:
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 90
+
