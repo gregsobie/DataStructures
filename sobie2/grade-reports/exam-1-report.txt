@@ -1,0 +1,25 @@
+Exam report for Gregory Sobie
+=============================
+
+Scores
+------
+
+  Problem                   Points
+  ----------------------- --------
+  constructors-1a                4
+  constructors-3a                4
+  km-arrays-2a                   4
+  km-declarationopts-1a          4
+  km-firstclass-1a               0
+  km-makefile-2a                 0
+  km-pointersintro-2a            4
+  passbyvalue-4a                 0
+  vector                        18
+
+Total score: 38/50 (76%)
+
+Code Problem Test Output
+------------------------
+
+See `tests.txt` (or `tests-1.txt` and `tests-2.txt`) for autograder test
+outputs.
