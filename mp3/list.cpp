@@ -18,6 +18,7 @@ template <class T>
 List<T>::~List()
 {
     /// @todo Graded in MP3.1
+	clear();
 }
 
 /**
@@ -28,6 +29,12 @@ template <class T>
 void List<T>::clear()
 {
     /// @todo Graded in MP3.1
+	while(head!=NULL){
+		tail=head->next;
+		delete head;
+		head=tail;
+	}
+	
 }
 
 /**
@@ -40,6 +47,18 @@ template <class T>
 void List<T>::insertFront(T const& ndata)
 {
     /// @todo Graded in MP3.1
+	ListNode* newNode = new ListNode(ndata);
+	
+	if(head!=NULL){
+		newNode->next = head;
+		head->prev = newNode;
+		head = newNode;
+	} else {
+		head=newNode;
+		tail=newNode;
+	}
+	length++;
+	newNode=NULL;
 }
 
 /**
@@ -52,6 +71,17 @@ template <class T>
 void List<T>::insertBack(const T& ndata)
 {
     /// @todo Graded in MP3.1
+	ListNode* newNode = new ListNode(ndata);
+	if(tail!=NULL){
+		tail->next = newNode;
+		newNode->prev = tail;
+		tail = newNode;
+	} else {
+		head = newNode;
+		tail = newNode;
+	}
+	length++;
+	newNode=NULL;
 }
 
 /**
@@ -78,6 +108,49 @@ template <class T>
 void List<T>::reverse(ListNode*& startPoint, ListNode*& endPoint)
 {
     /// @todo Graded in MP3.1
+	if(startPoint == endPoint)
+		return;
+	
+	ListNode* currIndex = startPoint;
+	ListNode* oldIndex = startPoint;
+	ListNode* endIndex = endPoint->next;
+
+	//Swaps next and prev for all nodes in reverse range
+	while(currIndex != endIndex){
+		oldIndex = currIndex->prev;
+		currIndex->prev = currIndex->next;
+		currIndex->next = oldIndex;
+		currIndex = currIndex->prev;
+	}
+
+	//Stores starting index of elements after the reverse range
+	oldIndex = endPoint->prev;
+
+	//Restores elements before the reverse range
+	if(startPoint->next != NULL){
+		endPoint->prev = startPoint->next;
+		endPoint->prev->next = endPoint;
+	}
+	else
+		endPoint->prev = NULL;
+
+	//Restores elements after the reverse range
+	if(oldIndex != NULL){
+		startPoint->next = oldIndex;
+		startPoint->next->prev = startPoint;
+	}
+	else
+		startPoint->next = NULL;
+
+	/*Update startPoint and endPoint to point to respective locations
+	in the rearranged list*/
+	oldIndex=startPoint;
+	startPoint=endPoint;
+	endPoint=oldIndex;
+
+	currIndex=NULL;
+	oldIndex=NULL;
+	endIndex=NULL;
 }
 
 /**
@@ -90,6 +163,43 @@ template <class T>
 void List<T>::reverseNth(int n)
 {
     /// @todo Graded in MP3.1
+	//List stays the same if length<=1 or n==1
+	if(length<=1 || n<=1){
+		return;
+	//Reverse entire list if block length is greater than list length
+	} else if(n>=length){
+		reverse();
+	//Else reverse block
+	} else {
+		ListNode* newHead = head;
+		ListNode* newTail = head;	
+
+		//While there are more blocks to reverse,
+		for(int i=0; i<length; i+=n){
+			//reverse the next block
+			for(int j=1; j<n; j++){
+				if(newTail->next != NULL)
+					newTail = newTail->next;
+			}
+
+			reverse(newHead, newTail);
+
+			//Update head pointer if first block
+			if(i < n){
+				head = newHead;
+			}
+			//Update tail pointer if last block
+			if((length - i) <= n){
+				tail = newTail;
+			}
+
+			//Update block head and tail pointers
+			newHead = newTail->next;
+			newTail = newHead;
+		}
+		newHead=NULL;
+		newTail=NULL;
+	} 
 }
 
 /**
@@ -105,6 +215,30 @@ template <class T>
 void List<T>::waterfall()
 {
     /// @todo Graded in MP3.1
+	ListNode* currIndex = head;
+	ListNode* oldIndex = head;
+	ListNode* oldTail;
+	int everyOther = 1; //First node is skipped
+
+	//For every element in the list,
+	for(int i=0; i<length; i++){
+		/*Move every other node to the tail of list
+			and update tail */
+		if(everyOther%2==0){
+			oldTail = tail;
+			insertBack(currIndex->data);
+			oldIndex->next = currIndex->next;
+			currIndex->prev = oldIndex;
+			tail->prev = oldTail;
+		}
+		//Update pointers
+		oldIndex = currIndex;
+		currIndex = currIndex->next;
+		everyOther++;
+	}
+	currIndex=NULL;
+	oldIndex=NULL;
+	oldTail=NULL;
 }
 
 /**
