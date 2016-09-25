@@ -32,6 +32,12 @@ void List<T>::clear()
 {
     // @todo Graded in lab_gdb
     // Write this function based on mp3
+	ListNode* next;
+	while(head!=NULL){
+		next = head->next;
+		delete head;
+		head = next;
+	}
 }
 
 /**
@@ -45,6 +51,13 @@ void List<T>::insertFront(T const& ndata)
 {
     // @todo Graded in lab_gdb
     // Write this function based on mp3
+	ListNode* newNode = new ListNode(ndata);
+	
+	if(head!=NULL)
+		newNode->next = head;
+	head=newNode;
+	length++;
+	newNode=NULL;
 }
 
 /**
@@ -65,9 +78,9 @@ void List<T>::insertBack(const T& ndata)
     } else {
         while (temp->next != NULL)
             temp = temp->next;
-        temp = new ListNode(ndata);
-        length++;
+        temp->next = new ListNode(ndata);
     }
+	length++;
 }
 
 /**
@@ -95,7 +108,7 @@ typename List<T>::ListNode* List<T>::reverse(ListNode* curr, ListNode* prev,
     // @todo Graded in lab_gdb
     ListNode* temp;
     if (len <= 0) {
-        curr->next = prev;
+        curr = prev;
         return curr;
     } else {
         temp = reverse(curr->next, curr, len - 1);
@@ -123,10 +136,23 @@ void List<T>::shuffle()
     ListNode *one, *two, *prev, *temp;
     one = two = prev = temp = head;
 
-    for (int i = 0; i < length / 2; i++) {
-        prev = two;
-        two = two->next;
-    }
+	//Cannot shuffle an empty deck
+	if(length<=0)
+		return;
+
+	/* Must traverse one more iteration if list 
+		contains odd number of elements */
+	int j;
+	switch(length%2) {
+		case 0: j = 1; break;
+		case 1: j = 0; break;
+	}
+
+	for (int i=j; i <= length / 2; i++) {
+        	prev = two;
+        	two = two->next;
+    	}
+
     prev->next = NULL;
 
     // interleave
@@ -135,5 +161,6 @@ void List<T>::shuffle()
         one->next = two;
         two = two->next;
         one->next->next = temp;
+	one = one->next->next;
     }
 }
