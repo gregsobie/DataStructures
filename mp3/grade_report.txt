@@ -1,8 +1,8 @@
-Grading r19522 by enx-cs225autograder committed on Sat Sep 24 02:37:21 CDT 2016
+Grading r20070 by enx-cs225autograder committed on Sun Sep 25 02:57:28 CDT 2016
 Monad Autograder
-Testing mp3 at 2016-09-25 01:54:26
+Testing mp3 at 2016-09-26 02:29:32
 
-"It'll work, the stack's just not big enough." ~ Eric Rosenberg
+"You look at their elbows, they actually have many good theoretical elbows." ~ Prof. Jiawei Han
 
 Setting up test environment...
 Compiling...
