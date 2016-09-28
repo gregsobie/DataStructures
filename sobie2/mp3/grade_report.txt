@@ -1,8 +1,8 @@
-Grading r20957 by enx-cs225autograder committed on Mon Sep 26 03:29:12 CDT 2016
+Grading r21331 by enx-cs225autograder committed on Tue Sep 27 03:10:18 CDT 2016
 Monad Autograder
-Testing mp3 at 2016-09-27 02:04:24
+Testing mp3 at 2016-09-28 01:38:44
 
-"To iterate is human, to recurse divine." ~ L. Peter Deutsch
+"There's no real reason for a lot of the things that I say." ~ Urvashi Khandelwal
 
 Setting up test environment...
 Compiling...
