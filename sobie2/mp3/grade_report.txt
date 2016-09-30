@@ -1,8 +1,8 @@
-Grading r21808 by enx-cs225autograder committed on Wed Sep 28 02:32:41 CDT 2016
+Grading r22389 by enx-cs225autograder committed on Thu Sep 29 02:34:37 CDT 2016
 Monad Autograder
-Testing mp3 at 2016-09-29 01:46:29
+Testing mp3 at 2016-09-30 02:00:02
 
-"Who dares to teach must never cease to learn." ~ J.C. Dana
+"For humans, honesty is a matter of degree. Engineers are always honest in matters of technology and human relationships. That's why it's a good idea to keep engineers away from customers, romantic interests, and other people who can't handle the truth." ~ Scott Adams
 
 Setting up test environment...
 Compiling...
