@@ -163,10 +163,10 @@ template <class T>
 void List<T>::reverseNth(int n)
 {
     /// @todo Graded in MP3.1
-	//List stays the same if length<=1 or n==1
+	//List stays the same if length<=1 or n<=1
 	if(length<=1 || n<=1){
 		return;
-	//Reverse entire list if block length is greater than list length
+	//Reverse entire list if block length is greater than or equal to list length
 	} else if(n>=length){
 		reverse();
 	//Else reverse block
@@ -216,29 +216,36 @@ void List<T>::waterfall()
 {
     /// @todo Graded in MP3.1
 	ListNode* currIndex = head;
-	ListNode* oldIndex = head;
-	ListNode* oldTail;
-	int everyOther = 1; //First node is skipped
+	//ListNode* oldIndex = head;
+	int everyOther = 0; //First node is skipped
 
 	//For every element in the list,
-	for(int i=0; i<length; i++){
+	while(true) {
+		if(currIndex == NULL || currIndex == tail) {
+			break;
+		}
 		/*Move every other node to the tail of list
 			and update tail */
-		if(everyOther%2==0){
-			oldTail = tail;
-			insertBack(currIndex->data);
-			oldIndex->next = currIndex->next;
-			currIndex->prev = oldIndex;
-			tail->prev = oldTail;
+		if(everyOther%2==1){
+			ListNode* newNode = currIndex;
+			currIndex = currIndex->next;
+
+			newNode->prev->next = newNode->next;
+			newNode->next->prev = newNode->prev;
+
+			tail->next = newNode;
+			newNode->prev = tail;
+			newNode->next = NULL;
+			tail = newNode;
+		} else {
+			currIndex = currIndex->next;
 		}
+
 		//Update pointers
-		oldIndex = currIndex;
-		currIndex = currIndex->next;
 		everyOther++;
 	}
-	currIndex=NULL;
-	oldIndex=NULL;
-	oldTail=NULL;
+	//currIndex=NULL;
+	//oldIndex=NULL;
 }
 
 /**
@@ -301,7 +308,10 @@ template <class T>
 typename List<T>::ListNode* List<T>::split(ListNode* start, int splitPoint)
 {
     /// @todo Graded in MP3.2
-    return NULL; // change me!
+	for(int i=0; i<splitPoint; i++)
+		start = start->next;
+	start->prev->next = NULL;
+	return start;
 }
 
 /**
@@ -344,7 +354,103 @@ template <class T>
 typename List<T>::ListNode* List<T>::merge(ListNode* first, ListNode* second)
 {
     /// @todo Graded in MP3.2
-    return NULL; // change me!
+	if(first == NULL && second == NULL) return NULL;
+	if(first == NULL) 	return second;
+	if(second == NULL) 	return first;
+
+	ListNode* returnNode = first;
+	if(second->data < first->data)
+		returnNode = second;
+
+	while(true){
+		if(second == NULL) break;
+		//Else find appropriate index of next element to sort
+		if(first->data < second->data){
+			//If every element in first is sorted, attach second to end of first
+			if(first->next == NULL){
+				first->next = second;
+				second->prev = first;
+				break;
+			}
+			//Else check next element of first
+			first = first->next;
+		//Else find appropriate index of next element to sort
+		} else {
+			ListNode* temp = second->next;
+			second->next = first;
+			second->prev = first->prev;
+			second->prev->next = second;
+			first->prev = second;
+			second = temp;
+		}
+	}
+	//head = returnNode;
+    	return returnNode;
+
+	/*
+	if (first == NULL && second == NULL) return NULL;
+	
+	if (first == NULL) return second;
+	if (second == NULL) return first;
+
+	ListNode* merged = (first->data < second->data) ? first : second;
+	ListNode* H = merged;
+	
+	if (merged == first) first = first->next;
+	if (merged == second) second = second->next;
+	
+	
+	while (first != NULL || second != NULL) {
+		
+		if (first != NULL && second != NULL) {
+			if (first->data < second->data) {
+				merged->next = first;
+				first->prev = merged;
+				merged = merged->next;
+				first = first->next;
+				
+				
+			}
+			else {
+			
+				merged->next = second;
+				second->prev = merged;
+				merged = merged->next;	
+				second = second->next;
+		
+			}
+		
+		
+		
+		
+		}
+		else if (first != NULL) {
+		
+			merged->next = first;
+			first->prev = merged;
+			merged = merged->next;
+			first = first->next;
+		
+		
+		
+		}
+		else if (second != NULL) {
+			
+			merged->next = second;
+			second->prev = merged;
+			merged = merged->next;
+			second = second->next;
+	
+		}
+
+   	}
+   	
+   	//first = NULL;
+   	//second = NULL;
+   	//merged = NULL;
+   	head = H;
+   	return H;
+	*/
 }
 
 /**
@@ -374,5 +480,15 @@ template <class T>
 typename List<T>::ListNode* List<T>::mergesort(ListNode* start, int chainLength)
 {
     /// @todo Graded in MP3.2
-    return NULL; // change me!
+	if (chainLength <= 1) return start;	
+	
+	ListNode* left = start;
+	
+	ListNode* right = split(start, chainLength/2);
+		
+	left = mergesort(left, chainLength/2);
+	
+    	right = mergesort(right, chainLength - (chainLength/2));
+    
+	return merge(left, right); // change me!
 }
