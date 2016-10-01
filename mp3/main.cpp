@@ -255,6 +255,7 @@ void testSort()
     // make list and sort it
     List<int> img_srt(v.begin(), v.end());
     img_srt.sort();
+	
 
     // vectorize and rebuild image
     vector<int> v2(img_srt.begin(), img_srt.end());
