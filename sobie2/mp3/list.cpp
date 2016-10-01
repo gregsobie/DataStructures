@@ -355,102 +355,68 @@ typename List<T>::ListNode* List<T>::merge(ListNode* first, ListNode* second)
 {
     /// @todo Graded in MP3.2
 	if(first == NULL && second == NULL) return NULL;
-	if(first == NULL) 	return second;
-	if(second == NULL) 	return first;
+	if(first == NULL && second != NULL) return second;
+	if(second == NULL && second != NULL) return first;
 
-	ListNode* returnNode = first;
-	if(second->data < first->data)
-		returnNode = second;
+	ListNode* merged;
+	if(first->data < second->data){
+		merged = first;
+		first = first->next;
+	} else {
+		merged = second;
+		second = second->next;
+	}
+	ListNode* returnNode = merged;
 
 	while(true){
-		if(second == NULL) break;
-		//Else find appropriate index of next element to sort
-		if(first->data < second->data){
-			//If every element in first is sorted, attach second to end of first
-			if(first->next == NULL){
-				first->next = second;
-				second->prev = first;
-				break;
-			}
-			//Else check next element of first
-			first = first->next;
-		//Else find appropriate index of next element to sort
-		} else {
-			ListNode* temp = second->next;
-			second->next = first;
-			second->prev = first->prev;
-			second->prev->next = second;
-			first->prev = second;
-			second = temp;
-		}
-	}
-	//head = returnNode;
-    	return returnNode;
+		//If there are no more elements to merge, exit loop
+		if(first == NULL && second == NULL) break;
 
-	/*
-	if (first == NULL && second == NULL) return NULL;
-	
-	if (first == NULL) return second;
-	if (second == NULL) return first;
-
-	ListNode* merged = (first->data < second->data) ? first : second;
-	ListNode* H = merged;
-	
-	if (merged == first) first = first->next;
-	if (merged == second) second = second->next;
-	
-	
-	while (first != NULL || second != NULL) {
-		
-		if (first != NULL && second != NULL) {
-			if (first->data < second->data) {
+		//If there are more elements to merge, merge elements
+		else if(first != NULL && second != NULL){
+			if(first->data < second->data){
 				merged->next = first;
 				first->prev = merged;
 				merged = merged->next;
+
+				//If every element in first has been merged, tack second to end and break
+				if(first->next == NULL){
+					merged->next = second;
+					second->prev = merged;
+					break;
+				}
+				//Else check next element of first
 				first = first->next;
-				
-				
-			}
-			else {
-			
+			} else {
 				merged->next = second;
 				second->prev = merged;
-				merged = merged->next;	
+				merged = merged->next;
+
+				//If every element in second has been merged, tack first to end and break
+				if(second->next == NULL){
+					merged->next = first;
+					first->prev = merged;
+					break;
+				}
+				//Else check next element of second
 				second = second->next;
-		
 			}
-		
-		
-		
-		
-		}
-		else if (first != NULL) {
-		
+
+		//Only elements in first list remaining
+		} else if(first != NULL) {
 			merged->next = first;
 			first->prev = merged;
 			merged = merged->next;
 			first = first->next;
-		
-		
-		
-		}
-		else if (second != NULL) {
-			
+		//Only elements in second list remaining
+		} else if(second != NULL) {
 			merged->next = second;
 			second->prev = merged;
 			merged = merged->next;
 			second = second->next;
-	
-		}
-
-   	}
-   	
-   	//first = NULL;
-   	//second = NULL;
-   	//merged = NULL;
-   	head = H;
-   	return H;
-	*/
+		}	
+	}
+    	return returnNode;
 }
 
 /**
