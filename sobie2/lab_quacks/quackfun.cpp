@@ -25,10 +25,12 @@ namespace QuackFun {
 template <typename T>
 T sum(stack<T>& s)
 {
-    // Your code here
-    return T(); // stub return value (0 for primitive types). Change this!
-                // Note: T() is the default value for objects, and 0 for
-                // primitive types
+	if(s.size()==0) return 0;
+	T stacked = s.top();
+	s.pop();
+	T summed = stacked + sum(s);
+	s.push(stacked);
+    	return summed;
 }
 
 /**
@@ -47,9 +49,44 @@ template <typename T>
 void scramble(queue<T>& q)
 {
     stack<T> s;
-    // optional: queue<T> q2;
+	int qCount, blockCount, min;
+    	qCount = q.size();
+   	blockCount = 1;
 
-    // Your code here
+	//While there are more elements to scan
+    	while(qCount != 0){
+		//Check if last block is not full size
+		if(qCount < blockCount)
+			min = qCount;
+		else
+			min = blockCount;
+
+		//Every other block should be reversed
+        	if(blockCount%2 == 0){
+			//For each block element, pop from queue and push to stack
+            		for (int i = 0 ; i < min; i++){
+                		T temp = q.front();
+                		q.pop();
+                		s.push(temp);
+            		}
+			//For each block element, pop from stack and push to queue
+            		for (int i = 0; i < min; i++){
+                		T temp = s.top();
+                		s.pop();
+                		q.push(temp);
+            		}
+		//If block should not be reversed
+        	} else {
+			//For each block element, push to back of queue
+            		for (int i = 0; i < min; i++){
+                		T temp = q.front();
+                		q.pop();
+                		q.push(temp);
+            		}
+        	}
+        qCount -= min;
+        blockCount++;
+    }
 }
 
 /**
