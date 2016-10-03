@@ -1,0 +1,57 @@
+Grading r26489 by sobie2 committed on Sun Oct  2 21:44:16 CDT 2016
+Monad Autograder
+Testing lab_quacks at 2016-10-03 00:24:29
+
+"Computers are like Old Testament gods; lots of rules and no mercy." ~ Joseph Campbell
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+sumDigits_762  . . . [3 pts]  - passed
+sumDigits_0  . . . . [2 pts]  - passed
+sumDigits_2  . . . . [2 pts]  - passed
+sumDigits_1024 . . . [3 pts]  - passed
+triangle_0 . . . . . [2 pts]  - passed
+triangle_1 . . . . . [2 pts]  - passed
+triangle_5 . . . . . [3 pts]  - passed
+triangle_10  . . . . [3 pts]  - passed
+sum_136  . . . . . . [20 pts] - passed
+sum_floats . . . . . [20 pts] - passed
+scramble_17  . . . . [20 pts] - passed
+scramble_10  . . . . [20 pts] - passed
+verifySame_result  . [10 pts] - FAILED: unit_tests.cpp:189: Expected false, returned true
+verifySame_no_modify [15 pts] - FAILED: unit_tests.cpp:247: Expected false, returned true
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+verifySame_result [10 points]
+Result: FAILED: unit_tests.cpp:189: Expected false, returned true
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+verifySame_no_modify [15 points]
+Result: FAILED: unit_tests.cpp:247: Expected false, returned true
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 100
+
