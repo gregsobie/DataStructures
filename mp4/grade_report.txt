@@ -1,8 +1,8 @@
-Grading r28857 by enx-cs225autograder committed on Sat Oct  8 02:02:59 CDT 2016
+Grading r29167 by enx-cs225autograder committed on Sun Oct  9 02:16:17 CDT 2016
 Monad Autograder
-Testing mp4 at 2016-10-09 01:43:51
+Testing mp4 at 2016-10-10 01:59:16
 
-"One day I will shoot you with this bullet. Can you still say that you love me?" ~ Re-l Mayer
+"The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time." ~ Tom Cargill
 
 Setting up test environment...
 Compiling...
