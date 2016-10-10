@@ -157,6 +157,33 @@ class BinaryTree
      */
     void printLeftToRight(const Node* subRoot) const;
 
+    /**
+     * Private helper function for the public mirror function.
+     * @param subRoot The current node in the recursion
+     */
+    void mirror(Node* subRoot);
+
+    /**
+     * Private helper function for the public isOrdered function.
+     * @param subRoot The current node in the recursion
+     */
+     bool isOrdered(const Node* subRoot) const;
+
+    /**
+     * Private helper function for the public printPaths function.
+     * @param subRoot The current node in the recursion
+     * @param path    Array of current path from root to leaf
+     * @param index   Index of current node in path array
+     */
+     void printPaths(const Node* subRoot, int path[], int index) const;
+
+    /**
+     * Private helper function for the public sumDistances function.
+     * @param subRoot The current node in the recursion
+     * @param sum     Contains the running total of distances
+     * @param dist    Distance from root to current node
+     */
+     void sumDistances(const Node* subRoot, int & sum, int dist) const;
 
     /**
      * Private helper function for the public insert function.

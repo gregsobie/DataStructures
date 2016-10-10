@@ -77,8 +77,28 @@ template <typename T>
 void BinaryTree<T>::mirror()
 {
     // your code here
+	//Call recursive helper function
+	mirror(root);
 }
 
+/**
+ * Private helper function for the public mirror function.
+ * @param subRoot
+ */
+template <typename T>
+void BinaryTree<T>::mirror(Node* subRoot)
+{
+    	// Base case - null node
+    	if (subRoot == NULL)
+        	return;
+	//Swap left and right for current node
+	Node* temp = subRoot->left;
+	subRoot->left = subRoot->right;
+	subRoot->right = temp;
+
+	mirror(subRoot->left);
+	mirror(subRoot->right);
+}
 
 /**
  * @return True if an in-order traversal of the tree would produce a
@@ -89,7 +109,54 @@ template <typename T>
 bool BinaryTree<T>::isOrdered() const
 {
     // your code here
-    return false;
+	//Call recursive helper function
+    return isOrdered(root);
+}
+
+/**
+ * Private helper function for the public isOrdered function.
+ * @param subRoot
+ */
+template <typename T>
+bool BinaryTree<T>::isOrdered(const Node* subRoot) const
+{
+	bool leftOrdered, rightOrdered;
+	int leftmostRight, rightmostLeft;
+
+    	// Base case - null node
+    	if (subRoot == NULL)
+        	return true;
+	// Order left side
+	if (subRoot->left == NULL){
+		leftOrdered = true;
+		rightmostLeft = subRoot->elem;
+	} else {
+		leftOrdered = isOrdered(subRoot->left);
+		
+		Node* temp = subRoot->left;
+		while(temp->right != NULL)
+			temp = temp->right;
+		rightmostLeft = temp->elem;
+	}
+
+	// Order right side
+	if (subRoot->right == NULL){
+		rightOrdered = true;
+		leftmostRight = subRoot->elem;
+	} else {
+		rightOrdered = isOrdered(subRoot->right);
+		
+		Node* temp = subRoot->right;
+		while(temp->left != NULL)
+			temp = temp->left;
+		leftmostRight = temp->elem;
+	}
+
+	// If list is ordered
+	if(leftOrdered && rightOrdered && subRoot->elem >= rightmostLeft && subRoot->elem <= leftmostRight)
+		return true;
+	return false;
+
 }
 
 
@@ -103,6 +170,38 @@ template <typename T>
 void BinaryTree<T>::printPaths() const
 {
     // your code here
+	int path[100];
+	// Call recursive helper function
+	printPaths(root, path, 0);
+}
+
+/**
+ * Private helper function for the public printPaths function.
+ * @param subRoot
+ * @param path[] Array of current path from root to leaf
+ * @param index  Index of the current node in the path array
+ */
+template <typename T>
+void BinaryTree<T>::printPaths(const Node* subRoot, int path[], int index) const
+{
+	// Base case - null node
+	if(subRoot == NULL)
+		return;
+
+	// Store next node in path array and move to next node
+	path[index] = subRoot->elem;
+	index++;
+
+	// If current node is a leaf, print path
+	if(subRoot->left == NULL && subRoot->right == NULL){
+		cout << "Path: ";
+		for(int i=0; i<index; i++)
+			cout << path[i] << " ";
+		cout << endl;
+	} else {
+		printPaths(subRoot->left, path, index);
+		printPaths(subRoot->right, path, index);
+	}
 }
 
 
@@ -118,6 +217,28 @@ template <typename T>
 int BinaryTree<T>::sumDistances() const
 {
     // your code here
-    return -1;
+	// Call recursive helper function
+	int sum, dist;
+	sum=0;
+	dist=0;
+	sumDistances(root, sum, dist);
+	return sum;
+}
+
+/**
+ * Private helper function for the public sumDistances function.
+ * @param subRoot
+ * @param sum     Holds the totaled distances for each path
+ * @param dist    Distance between root and leaf for given path
+ */
+template <typename T>
+void BinaryTree<T>::sumDistances(const Node* subRoot, int & sum, int dist) const
+{
+	// Base case - null node
+	if(subRoot == NULL)
+		return;
+	sum += dist;
+	sumDistances(subRoot->left, sum, dist+1);
+	sumDistances(subRoot->right, sum, dist+1);
 }
 
