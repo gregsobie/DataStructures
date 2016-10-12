@@ -1,8 +1,8 @@
-Grading r30222 by enx-cs225autograder committed on Mon Oct 10 02:33:09 CDT 2016
+Grading r30512 by enx-cs225autograder committed on Tue Oct 11 02:18:50 CDT 2016
 Monad Autograder
-Testing mp4 at 2016-10-11 01:45:24
+Testing mp4 at 2016-10-12 01:50:16
 
-"We know about as much about software quality problems as they knew about the Black Plague in the 1600s. We've seen the victims' agonies and helped burn the corpses. We don't know what causes it; we don't really know if there is only one disease. We just suffer -- and keep pouring our sewage into our water supply." ~ Tom Van Vleck
+"The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time." ~ Tom Cargill
 
 Setting up test environment...
 Compiling...
