@@ -1,8 +1,8 @@
-Grading r30512 by enx-cs225autograder committed on Tue Oct 11 02:18:50 CDT 2016
+Grading r30880 by enx-cs225autograder committed on Wed Oct 12 02:22:54 CDT 2016
 Monad Autograder
-Testing mp4 at 2016-10-12 01:50:16
+Testing mp4 at 2016-10-13 02:00:13
 
-"The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time." ~ Tom Cargill
+"A computer lets you make more mistakes faster than any invention in human history–with the possible exceptions of handguns and tequila." ~ Mitch Radcliffe
 
 Setting up test environment...
 Compiling...
