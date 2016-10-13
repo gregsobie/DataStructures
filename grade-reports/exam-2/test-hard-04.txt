@@ -1,0 +1,71 @@
+CD to .. 
+/home/mattox/repos/cs225/fa16-exam2-grading/submissions/sobie2
+###############################
+##                           ##
+##     Grading question      ##
+##                           ##
+###############################
+Grader dir is /home/mattox/repos/cs225/fa16-exam2-grading/code-grading/scripts
+qid is hard-04
+variant is
+test_dir is /home/mattox/repos/cs225/fa16-exam2-grading/code-grading/scripts/tests/hard-04/
+fullTmpDir = /home/mattox/repos/cs225/fa16-exam2-grading/submissions/sobie2/grade-.POh
+:: Compiling...
+g++ -std=c++0x -c -g -O0 -Wall -Wextra -Wno-unused-function   -c -o hard.o hard.cpp
+hard.cpp: In function ‘void intersection(LinkedList*, LinkedList*, LinkedList&)’:
+hard.cpp:3:31: warning: unused parameter ‘lst1’ [-Wunused-parameter]
+ void intersection(LinkedList* lst1,
+                               ^~~~
+hard.cpp:4:24: warning: unused parameter ‘lst2’ [-Wunused-parameter]
+            LinkedList* lst2,
+                        ^~~~
+hard.cpp:5:24: warning: unused parameter ‘intersect’ [-Wunused-parameter]
+            LinkedList &intersect)
+                        ^~~~~~~~~
+:: Compiled successfully!
+:: Compiling provided code...
+
+:: Compiling test_empty.
+:: Running test_empty.
+Status is 'PASSED'
+:: Passed test_empty.
+
+:: Compiling test_no_overlap.
+:: Running test_no_overlap.
+2->4->6->8->10->NULL
+1->3->5->7->9->NULL
+NULL
+Status is 'PASSED'
+:: Passed test_no_overlap.
+
+:: Compiling test_some_overlap.
+:: Running test_some_overlap.
+2->3->6->7->10->NULL
+1->3->5->7->9->NULL
+NULL
+Status is 'FAILED'
+:: Failed test_some_overlap.
+
+:: Compiling test_all_overlap.
+:: Running test_all_overlap.
+Status is 'FAILED'
+:: Failed test_all_overlap.
+
+Failed tests:
+- test_some_overlap
+- test_all_overlap
+
+Grade for question : 60/100
+
+
+~ ~ ~
+
+Grade: 60
+
+Details:
+test,grade
+_compiled,1
+_test_empty,1
+_test_no_overlap,1
+_test_some_overlap,0
+_test_all_overlap,0
