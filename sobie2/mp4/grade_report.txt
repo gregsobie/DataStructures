@@ -1,8 +1,8 @@
-Grading r30880 by enx-cs225autograder committed on Wed Oct 12 02:22:54 CDT 2016
+Grading r31411 by enx-cs225autograder committed on Thu Oct 13 02:37:19 CDT 2016
 Monad Autograder
-Testing mp4 at 2016-10-13 02:00:13
+Testing mp4 at 2016-10-14 01:47:59
 
-"A computer lets you make more mistakes faster than any invention in human history–with the possible exceptions of handguns and tequila." ~ Mitch Radcliffe
+"Sometimes I just like to throw things." ~ Cinda Heeren
 
 Setting up test environment...
 Compiling...
