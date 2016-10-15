@@ -69,6 +69,12 @@ class gradientColorPicker : public colorPicker
     virtual RGBAPixel operator()(int x, int y);
 
   private:
+    RGBAPixel fadeC1;
+    RGBAPixel fadeC2;
+    int rad;
+    int centX;
+    int centY;
+   // int distance;
     /**
      * @todo Add any necessary private storage here! You may also add
      *	private helper functions as you see fit.
