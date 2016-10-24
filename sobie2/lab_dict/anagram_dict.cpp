@@ -23,6 +23,18 @@ using std::ifstream;
 AnagramDict::AnagramDict(const string& filename)
 {
     /* Your code goes here! */
+	ifstream wordsFile(filename);
+	string word;
+	if(wordsFile.is_open())
+	{
+		/* Reads a line from wordsFile into word until the file ends. */
+	    while(getline(wordsFile, word))
+	    {
+	    	string key = word;
+		std::sort(key.begin(), key.end());
+		dict[key].push_back(word);
+	    }
+	}
 }
 
 /**
@@ -32,6 +44,14 @@ AnagramDict::AnagramDict(const string& filename)
 AnagramDict::AnagramDict(const vector<string>& words)
 {
     /* Your code goes here! */
+	/* Iterator */
+	std::vector<string>::const_iterator it;	
+	/* For each word in words */
+    	for(it=words.begin();it<words.end();it++){
+	    string key=(*it);
+	    std::sort(key.begin(), key.end());
+	    dict[key].push_back(*it);
+	}
 }
 
 /**
@@ -43,9 +63,16 @@ AnagramDict::AnagramDict(const vector<string>& words)
 vector<string> AnagramDict::get_anagrams(const string& word) const
 {
     /* Your code goes here! */
-    return vector<string>();
-}
+	string anagram = word;
 
+	std::sort(anagram.begin(), anagram.end());
+	auto lookup = dict.find(anagram);
+	/* If anagram is found */
+	if (lookup != dict.end())
+		return lookup->second;
+	/* No anagrams were found */
+	else 	return vector<string>();
+}
 /**
  * @return A vector of vectors of strings. Each inner vector contains
  * the "anagram siblings", i.e. words that are anagrams of one another.
@@ -55,5 +82,14 @@ vector<string> AnagramDict::get_anagrams(const string& word) const
 vector<vector<string>> AnagramDict::get_all_anagrams() const
 {
     /* Your code goes here! */
-    return vector<vector<string>>();
+	vector<vector<string>> ret;
+	
+    	for(auto it=dict.begin(); it!=dict.end(); it++){      
+    		if(it->second.size()>1)
+    			ret.push_back(it->second);
+    	}
+	/* Return vector of vectors of strings */
+	if(!ret.empty())
+		return ret;
+	else 	return vector<vector<string>>();
 }
