@@ -48,12 +48,27 @@ void CommonWords::init_file_word_maps(const vector<string>& filenames)
         // file
         vector<string> words = file_to_vector(filenames[i]);
         /* Your code goes here! */
+	/* Map for common words */
+	std::map<string, unsigned int> m;
+	/* For each word in the line */
+	for(size_t j=0; j<words.size(); j++)
+		/* Increment value if we have seen this key already */
+		m[words[j]]++;
+	/* Update word map */
+	file_word_maps[i]=m;
     }
 }
 
 void CommonWords::init_common()
 {
     /* Your code goes here! */
+	/* For each file */
+	for(size_t i=0; i<file_word_maps.size(); i++){
+		/* For each key in current file */
+		for(auto& key_val : file_word_maps[i])
+			/* Increment if key seen in current file */
+			common[key_val.first]++;
+	}
 }
 
 /**
@@ -65,6 +80,31 @@ vector<string> CommonWords::get_common_words(unsigned int n) const
 {
     vector<string> out;
     /* Your code goes here! */
+	/* Number of times word has appeared in file
+	 * with frequency of occurance >= n */
+	int counter;
+	/* For each key in common */
+	for(auto& common_key : common){
+		/* Reset counter for next key */
+		counter=0;
+		/* If key is in every file */
+		if(common_key.second == file_word_maps.size()){
+			/* For every file */
+			for(size_t i=0; i<file_word_maps.size(); i++){
+				/* Findd ffrequency of key's occurance in current file */
+				auto iterator = file_word_maps[i].find(common_key.first);
+				if(iterator!=file_word_maps[i].end()){
+					/* If frequency is greater than n */
+					if(iterator->second >= n){
+						counter+=1;
+						/* If frequency is greater than n for all files */
+						if(counter==(int)(file_word_maps.size()))
+							out.push_back(common_key.first);
+					}
+				}
+			}
+		}
+	}
     return out;
 }
 
