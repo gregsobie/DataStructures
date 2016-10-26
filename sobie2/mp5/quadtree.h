@@ -79,6 +79,7 @@ class Quadtree
 	void build(PNG const &source, int res, QuadtreeNode* currNode);
 	RGBAPixel getPixelHelper(int x, int y, QuadtreeNode* currNode) const;
 	int findQuadrant(int x, int y, QuadtreeNode* currNode) const;
+	uint8_t getAverage(QuadtreeNode* node, char color);
 	void clockwiseRotate(QuadtreeNode* currNode);
 	void prune(int tolerance, QuadtreeNode* currNode);
 	int difference(QuadtreeNode* a, QuadtreeNode* b) const;
