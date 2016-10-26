@@ -11,6 +11,7 @@ using namespace std;
 #define QUAD_NE 2
 #define QUAD_SW 3
 #define QUAD_SE 4
+#define QUAD_COUNT 4
 
 /* Default constructor */
 Quadtree::Quadtree(){
@@ -103,10 +104,31 @@ void Quadtree::build(PNG const &source, int resolution, QuadtreeNode* currNode){
 	build(source, newResolution, currNode->swChild);
 	build(source, newResolution, currNode->seChild);
 
-	/* Update colors
+	/* Update colors */
 	currNode->element.red = getAverage(currNode, 'R');
-	currNode->element.green = getAverage(currNode, 'G';
-	currNode->element.blue = getAverage(currNode, 'B'); */
+	currNode->element.green = getAverage(currNode, 'G');
+	currNode->element.blue = getAverage(currNode, 'B');
+}
+
+uint8_t Quadtree::getAverage(QuadtreeNode* node, char color){
+	switch(color){
+		case 'R': return (node->nwChild->element.red +
+				  node->neChild->element.red +
+				  node->swChild->element.red +
+				  node->seChild->element.red) / QUAD_COUNT;
+				  break;
+		case 'B': return (node->nwChild->element.blue +
+				  node->neChild->element.blue +
+				  node->swChild->element.blue +
+				  node->seChild->element.blue) / QUAD_COUNT;
+				  break;
+		case 'G': return (node->nwChild->element.green +
+				  node->neChild->element.green +
+				  node->swChild->element.green +
+				  node->seChild->element.green) / QUAD_COUNT;
+				  break;
+		default: return 0; break;
+	}
 }
 
 /* Gets the RGBAPixel at the (x,y) location in the bitmap image
