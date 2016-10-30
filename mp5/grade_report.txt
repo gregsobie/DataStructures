@@ -1,8 +1,8 @@
-Grading r39737 by enx-cs225autograder committed on Fri Oct 28 01:55:22 CDT 2016
+Grading r40302 by enx-cs225autograder committed on Sat Oct 29 02:09:57 CDT 2016
 Monad Autograder
-Testing mp5 at 2016-10-29 01:16:39
+Testing mp5 at 2016-10-30 01:13:47
 
-"It may look like I'm doing nothing, but I'm actively waiting for my problems to go away." ~ Scott Adams
+"I didn't say I wanted to die in a blender! I said I wanted to be in a blender!" ~ Kyle Johnson
 
 Setting up test environment...
 Compiling...
