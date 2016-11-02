@@ -5,6 +5,7 @@
  */
 
 #include "quadtree.h"
+#include "math.h"
 using namespace std;
 
 #define QUAD_NW 1
@@ -12,6 +13,7 @@ using namespace std;
 #define QUAD_SW 3
 #define QUAD_SE 4
 #define QUAD_COUNT 4
+#define MAX_TOLERANCE 195075 // 3*255*255
 
 /* Default constructor */
 Quadtree::Quadtree(){
@@ -187,34 +189,114 @@ PNG Quadtree::decompress() const {
 }
 
 void Quadtree::clockwiseRotate(){
-
+	clockwiseRotate(root);
 }
 
 void Quadtree::clockwiseRotate(QuadtreeNode* currNode){
+	/* Base case -- we need only check one node
+	 * since either all or no nodes are NULL */
+	if(currNode->nwChild == NULL)
+		return;
 
+	/* Rotate children pointers */
+	QuadtreeNode* temp=currNode->nwChild;
+	currNode->nwChild=currNode->swChild;
+	currNode->swChild=currNode->seChild;
+	currNode->seChild=currNode->neChild;
+	currNode->neChild=temp;
+
+	/* Update coordinates */
+	currNode->nwChild->x=currNode->x;
+	currNode->nwChild->y=currNode->y;
+	currNode->neChild->x=currNode->x + (currNode->resolution)/2;
+	currNode->neChild->y=currNode->y;
+	currNode->swChild->x=currNode->x;
+	currNode->swChild->y=currNode->y + (currNode->resolution)/2;
+	currNode->seChild->x=currNode->x + (currNode->resolution)/2;
+	currNode->seChild->y=currNode->y + (currNode->resolution)/2;
+
+	/* Recursively rotate children */
+	clockwiseRotate(currNode->nwChild);
+	clockwiseRotate(currNode->neChild);
+	clockwiseRotate(currNode->swChild);
+	clockwiseRotate(currNode->seChild);
 }
 
 void Quadtree::prune(int tolerance){
+	prune(tolerance, root);
+}
+
+void Quadtree::prune(int tolerance, QuadtreeNode* currNode){
+	/* Base case -- we need only check one node
+	 * since either all or no nodes are NULL */
+	if(currNode->nwChild == NULL)
+		return;
+
+	/* If tolerance is not exceeded */
+	if(pruneTolerance(tolerance, currNode, currNode)){
+		clear(currNode->nwChild);
+		clear(currNode->neChild);
+		clear(currNode->swChild);
+		clear(currNode->seChild);
+		return;
+	}
+
+	/* Recursively prune children */
+	prune(tolerance, currNode->nwChild);
+	prune(tolerance, currNode->neChild);
+	prune(tolerance, currNode->swChild);
+	prune(tolerance, currNode->seChild);
+}
+
+bool Quadtree::pruneTolerance(int tolerance, QuadtreeNode* currNode, QuadtreeNode* avgNode) const{
+	/* Base case -- we need only check one node
+	 * since either all or no nodes are NULL */
+	if(currNode->nwChild == NULL)
+		return !(difference(currNode, avgNode)>tolerance);
+	return (pruneTolerance(tolerance, currNode->nwChild, avgNode) &&
+		pruneTolerance(tolerance, currNode->neChild, avgNode) &&
+		pruneTolerance(tolerance, currNode->swChild, avgNode) &&
+		pruneTolerance(tolerance, currNode->seChild, avgNode));
 
 }
 
-void Quadtree::prune(int tolernce, QuadtreeNode* currNode){
-
-}
-
+/* Returns sum of squared differences */
 int Quadtree::difference(QuadtreeNode* a, QuadtreeNode* b) const{
-	return 0;
+	return (pow((a->element.red - b->element.red), 2) + 
+	       pow((a->element.blue - b->element.blue), 2) +
+	       pow((a->element.green - b->element.green), 2));
 }
 
 int Quadtree::pruneSize(int tolerance) const{
-	return 0;
+	return pruneSize(tolerance, root);
 }
 
 int Quadtree::pruneSize(int tolerance, QuadtreeNode* currNode) const{
-	return 0;
+	/* Base case -- we need only check one node
+	 * since either all or no nodes are NULL */
+	if(currNode->nwChild == NULL)
+		return 1;
+	if(pruneTolerance(tolerance, currNode, currNode))
+		return 1;
+	return pruneSize(tolerance, currNode->nwChild) +
+	       pruneSize(tolerance, currNode->neChild) +
+	       pruneSize(tolerance, currNode->swChild) +
+	       pruneSize(tolerance, currNode->seChild);
 }
 
 int Quadtree::idealPrune(int numLeaves) const{
-	return 0;
+	return idealPrune(numLeaves, MAX_TOLERANCE, MAX_TOLERANCE);
+}
+
+int Quadtree::idealPrune(int numLeaves, int level, int interval) const{
+	if(pruneSize(level)==numLeaves){
+		while(pruneSize(level)==numLeaves)
+			level--;
+		return ++level;
+	}
+	
+	int ret = pruneSize(level)<numLeaves ? idealPrune(numLeaves, level-(interval/2), level-(interval/2)): 
+				 idealPrune(numLeaves, level+(interval/2), interval/2);
+	return ret;
 }
 

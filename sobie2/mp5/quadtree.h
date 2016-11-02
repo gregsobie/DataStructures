@@ -28,6 +28,7 @@ class Quadtree
 	void prune(int tolerance);
 	int pruneSize(int tolerance) const;
 	int idealPrune(int numLeaves) const;
+	bool pruneTolerance() const;
   private:
     /**
      * A simple class representing a single node of a Quadtree.
@@ -84,7 +85,8 @@ class Quadtree
 	void prune(int tolerance, QuadtreeNode* currNode);
 	int difference(QuadtreeNode* a, QuadtreeNode* b) const;
 	int pruneSize(int tolerance, QuadtreeNode* currNode) const;
-	int idealPrune(int numLeaves, int n, int interval) const;
+	int idealPrune(int numLeaves, int level, int interval) const;
+	bool pruneTolerance(int tolerance, QuadtreeNode* currNode, QuadtreeNode* avgNode) const;
 	
 
     QuadtreeNode* root; /**< pointer to root of quadtree */
