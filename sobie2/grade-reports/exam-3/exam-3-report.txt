@@ -1,0 +1,31 @@
+Exam 3 report for Gregory Sobie
+===============================
+
+Scores
+------
+
+  Problem          Points
+  -------------- --------
+  mc-cpp3-001h          4
+  mc-cpp3-002j          4
+  mc-cpp3-003d          0
+  mc-cpp3-004b          0
+  mc-cpp3-005f          4
+  mc-cpp3-006e          4
+  mc-cpp3-007e          4
+  mc-cpp3-008d          4
+  queue-03              9
+  tree-02               9
+
+Each coding question was worth 9 points.
+
+Total score: 42/50 (84%)
+
+Code Problem Test Output
+------------------------
+
+See `test-queue.txt` and `test-tree.txt` for autograder test outputs.
+
+Questions / problems of a specific nature, please email mattox.
+Questions / problems that look like they would have affected a lot of
+people, please post on Piazza.
