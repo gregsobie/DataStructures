@@ -352,7 +352,28 @@ template <class T, class C>
 size_t insertion_idx(const std::vector<T>& elements, const C& val)
 {
     /* TODO Your code goes here! */
-    return 5;
+	/* For each element in the sorted vector 
+	 * if key is present, return index */
+	/* size_t i;
+	for(i=0; i<elements.size(); i++){
+		if(elements[i]==val || elements[i]>val)
+			return i;
+	}
+	return i; */
+
+    /* Binary search */
+    int lowerbound=0;
+    int upperbound=elements.size();
+    int middle;
+    while(lowerbound < upperbound){
+      middle=(lowerbound+upperbound)/2;
+      if(val < elements.at(middle))
+        upperbound=middle;
+      else if(val > elements.at(middle))
+        lowerbound=++middle;
+      else return middle;
+    }
+    return lowerbound;
 }
 
 #include "btree_given.cpp"
