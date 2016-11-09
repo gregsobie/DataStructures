@@ -247,7 +247,10 @@ class KDTree
     /**
      * @todo Add your helper functions here.
      */
-
+	void buildTree(int left, int right, int dim);
+	int partition(int left, int right, int dim, int k);
+	void quickSelect(int left, int right, int dim, int k);
+	Point<Dim> findNNHelper(const Point<Dim> &query, const Point<Dim> &currentBest, int left, int right, int dim) const;
 };
 
 #include "kdtree.cpp"
