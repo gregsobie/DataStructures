@@ -1,8 +1,8 @@
-Grading r48833 by enx-cs225autograder committed on Wed Nov  9 00:33:43 CST 2016
+Grading r48926 by enx-cs225autograder committed on Thu Nov 10 00:41:49 CST 2016
 Monad Autograder
-Testing mp6 at 2016-11-10 00:34:49
+Testing mp6 at 2016-11-11 00:36:19
 
-"Hey Jude / Your make is bad / You should fix that / Compiler error / Remember / To let it search the root path / Then you can start / To make it better" ~ Ryan North
+"Java is, in many ways, C++-." ~ Michael Feldman
 
 Setting up test environment...
 Compiling...
