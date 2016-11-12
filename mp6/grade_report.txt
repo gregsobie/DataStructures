@@ -1,8 +1,8 @@
-Grading r48926 by enx-cs225autograder committed on Thu Nov 10 00:41:49 CST 2016
+Grading r49302 by enx-cs225autograder committed on Fri Nov 11 00:43:36 CST 2016
 Monad Autograder
-Testing mp6 at 2016-11-11 00:36:19
+Testing mp6 at 2016-11-12 00:33:15
 
-"Java is, in many ways, C++-." ~ Michael Feldman
+"And I'm sitting there hallucinating a bird on my pillow from the benadryl and I think to myself ... 'I need to write a poem about Makefiles'." ~ Lisa Sproat
 
 Setting up test environment...
 Compiling...
