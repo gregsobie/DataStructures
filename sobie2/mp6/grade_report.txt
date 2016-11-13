@@ -1,8 +1,8 @@
-Grading r49302 by enx-cs225autograder committed on Fri Nov 11 00:43:36 CST 2016
+Grading r49760 by enx-cs225autograder committed on Sat Nov 12 00:40:13 CST 2016
 Monad Autograder
-Testing mp6 at 2016-11-12 00:33:15
+Testing mp6 at 2016-11-13 00:30:22
 
-"And I'm sitting there hallucinating a bird on my pillow from the benadryl and I think to myself ... 'I need to write a poem about Makefiles'." ~ Lisa Sproat
+"On two occasions, I have been asked [by members of Parliament], 'Pray, Mr. Babbage, if you put into the machine wrong figures, will the right answers come out?' I am not able to rightly apprehend the kind of confusion of ideas that could provoke such a question." ~ Charles Babbage
 
 Setting up test environment...
 Compiling...
