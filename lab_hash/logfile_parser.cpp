@@ -85,11 +85,12 @@ bool LogfileParser::hasVisited(const string& customer, const string& url) const
     /**
      * @todo Implement this function.
      */
+	for(auto it=whenVisitedTable.begin(); it != whenVisitedTable.end(); it++){
+		if(it->first==customer+url)
+			return true; 
+	}
 
-    (void) customer; // prevent warnings... When you implement this function, remove this line.
-    (void) url;      // prevent warnings... When you implement this function, remove this line.
-
-    return true; // replaceme
+    return false;
 }
 
 /**
@@ -108,11 +109,12 @@ time_t LogfileParser::dateVisited(const string& customer,
     /**
      * @todo Implement this function.
      */
+	for(auto it=whenVisitedTable.begin(); it != whenVisitedTable.end(); it++){
+		if(it->first==customer+url)
+			return it->second; 
+	}
 
-    (void) customer; // prevent warnings... When you implement this function, remove this line.
-    (void) url;      // prevent warnings... When you implement this function, remove this line.
-
-    return time_t(); // replaceme
+    return time_t();
 }
 
 /**
