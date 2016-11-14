@@ -31,8 +31,17 @@ vector<pair<string, int>> WordFreq<Dict>::getWords(int threshold) const
      * @todo Implement this function.
      * @see char_counter.cpp if you're having trouble.
      */
-
-    (void) threshold; // prevent warnings... When you implement this function, remove this line.
+	Dict<string, int> hashTable(256);
+	while(infile.good()){
+		string word=infile.getNextWord();
+		hashTable[word]++;
+	}
+	/* Our vector should only contain pairs whose frequencies are
+	 * greater than or equal to threshold */
+	for(auto it=hashTable.begin(); it != hashTable.end(); it++){
+		if(it->second >= threshold)
+			ret.push_back(*it);
+	}
 
     return ret;
 }

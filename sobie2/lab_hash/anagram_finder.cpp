@@ -54,11 +54,30 @@ bool AnagramFinder<Dict>::checkWord(const string& word, const string& test)
      * @todo Implement this function! You should use the provided
      * templated hashtable class Dict.
      */
+	/* If the words contain a different number of letters,
+	 * then they cannot be anagrams of each other */
+	if(word.size() != test.size())
+		return false;
 
-    (void) word; // prevent warnings... When you implement this function, remove this line.
-    (void) test; // prevent warnings... When you implement this function, remove this line.
-
-    return true;
+	Dict<char,int> hashWord(256);
+	Dict<char,int> hashTest(256);
+	/* For each letter in word, update frequency */
+	for(size_t i=0; i<word.size(); i++){
+		hashWord[word[i]]++;
+		hashTest[word[i]]++;
+	}
+	/* Check if frequencies match */
+	auto itWord=hashWord.begin();
+	auto itTest=hashTest.begin();
+	while(itWord != hashWord.end() && itTest != hashTest.end()){
+		if(itWord->first != itTest->first)
+			return false;
+		else if(itWord->second != itTest->second)
+			return false;
+		itWord++;
+		itTest++;
+	}
+    	return true;
 }
 
 /**

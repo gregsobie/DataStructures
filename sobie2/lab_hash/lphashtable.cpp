@@ -85,9 +85,20 @@ void LPHashTable<K, V>::insert(K const& key, V const& value)
      *  0.7). **Do this check *after* increasing elems!!** Also, don't
      *  forget to mark the cell for probing with should_probe!
      */
-
-    (void) key;   // prevent warnings... When you implement this function, remove this line.
-    (void) value; // prevent warnings... When you implement this function, remove this line.
+	elems++;
+	/* Resize table if necessary */
+	if(elems/size >= .7)
+		resizeTable();
+	/* Find next available cell to store element */
+	size_t idx=hash(key, size);
+	while(table[idx] != NULL){
+		idx++;
+		idx%=size;
+	}
+	table[idx]=new std::pair<K,V>(key, value);
+	/* Mark the cell for probing */
+	should_probe[idx]=true;
+	
 }
 
 template <class K, class V>
