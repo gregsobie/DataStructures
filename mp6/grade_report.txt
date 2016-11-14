@@ -1,8 +1,8 @@
-Grading r49760 by enx-cs225autograder committed on Sat Nov 12 00:40:13 CST 2016
+Grading r50233 by enx-cs225autograder committed on Sun Nov 13 00:37:34 CST 2016
 Monad Autograder
-Testing mp6 at 2016-11-13 00:30:22
+Testing mp6 at 2016-11-14 01:04:53
 
-"On two occasions, I have been asked [by members of Parliament], 'Pray, Mr. Babbage, if you put into the machine wrong figures, will the right answers come out?' I am not able to rightly apprehend the kind of confusion of ideas that could provoke such a question." ~ Charles Babbage
+"I've seen many balls. Actually, let's do an example without balls." ~ Jack Toole
 
 Setting up test environment...
 Compiling...
