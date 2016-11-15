@@ -1,8 +1,8 @@
-Grading r50233 by enx-cs225autograder committed on Sun Nov 13 00:37:34 CST 2016
+Grading r51379 by enx-cs225autograder committed on Mon Nov 14 01:12:11 CST 2016
 Monad Autograder
-Testing mp6 at 2016-11-14 01:04:53
+Testing mp6 at 2016-11-15 00:33:47
 
-"I've seen many balls. Actually, let's do an example without balls." ~ Jack Toole
+"A lot of the things that I say are true, but I don't actually mean them." ~ Alexey Stepanov
 
 Setting up test environment...
 Compiling...
