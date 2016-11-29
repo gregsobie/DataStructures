@@ -1,0 +1,31 @@
+Grading r55180 by sobie2 committed on Mon Nov 28 17:21:01 CST 2016
+Monad Autograder
+Testing lab_heaps at 2016-11-29 01:03:37
+
+"We know about as much about software quality problems as they knew about the Black Plague in the 1600s. We've seen the victims' agonies and helped burn the corpses. We don't know what causes it; we don't really know if there is only one disease. We just suffer -- and keep pouring our sewage into our water supply." ~ Tom Van Vleck
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+peek1  . . . [5 pts] - passed
+peek2  . . . [5 pts] - passed
+heapifyDown1 [9 pts] - passed
+heapifyDown2 [9 pts] - passed
+heapifyDown3 [9 pts] - passed
+heapifyDown4 [9 pts] - passed
+heapifyDown5 [9 pts] - passed
+buildHeap1 . [9 pts] - passed
+buildHeap2 . [9 pts] - passed
+buildHeap3 . [9 pts] - passed
+buildHeap4 . [9 pts] - passed
+buildHeap5 . [9 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+
