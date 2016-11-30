@@ -1,0 +1,24 @@
+Grading r55917 by sobie2 committed on Tue Nov 29 21:29:10 CST 2016
+Monad Autograder
+Testing mp7.1 at 2016-11-30 00:38:15
+
+"It always takes longer than you expect, even when you take into account Hofstadter's Law." ~ Hofstadter's Law
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+addElements1 . . . . [20 pts] - passed
+addElements2 . . . . [20 pts] - passed
+testFindAndSetUnion1 [20 pts] - passed
+testFindAndSetUnion2 [20 pts] - passed
+testFindAndSetUnion3 [20 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+
