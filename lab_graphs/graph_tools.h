@@ -43,6 +43,8 @@ namespace GraphTools
 
     // define any helper functions here:
 
+    bool compare(Edge a, Edge b);
+
 }
 
 #endif
