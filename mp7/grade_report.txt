@@ -1,8 +1,8 @@
-Grading r57130 by enx-cs225autograder committed on Sat Dec  3 01:47:17 CST 2016
+Grading r57666 by enx-cs225autograder committed on Sun Dec  4 01:47:31 CST 2016
 Monad Autograder
-Testing mp7 at 2016-12-04 01:22:45
+Testing mp7 at 2016-12-05 01:51:11
 
-"The slogan of Subversion for a while was "CVS done right", or something like that, and if you start with that kind of slogan, there's nowhere you can go. There is no way to do CVS right." ~ Linus Torvalds
+"There are two ways of constructing a software design. One way is to make it so simple that there are obviously no deficiencies. And the other way is to make it so complicated that there are no obvious deficiencies." ~ C.A.R. Hoare
 
 Setting up test environment...
 Compiling...
