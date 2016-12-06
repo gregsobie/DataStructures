@@ -1,0 +1,80 @@
+CD to .. 
+/home/mattox/repos/cs225/fa16-exam4-grading/submissions/sobie2
+###############################
+##                           ##
+##     Grading question      ##
+##                           ##
+###############################
+Grader dir is /home/mattox/repos/cs225/fa16-exam4-grading/code-grading/scripts
+qid is first-05
+variant is
+test_dir is /home/mattox/repos/cs225/fa16-exam4-grading/code-grading/scripts/tests/first-05/
+fullTmpDir = /home/mattox/repos/cs225/fa16-exam4-grading/submissions/sobie2/grade-.6hG
+:: Compiling...
+g++ -std=c++0x -c -g -O0 -Wall -Wextra -Wno-unused-function solution_first.cpp
+:: Compiled successfully!
+:: Compiling provided code...
+
+:: Compiling test_one.
+make -s first EXTRA_OBJS=test_one.o
+:: Running test_one.
+Status is 'PASSED'
+:: Passed test_one.
+
+:: Compiling test_a_1.
+make -s first EXTRA_OBJS=test_a_1.o
+:: Running test_a_1.
+Status is 'PASSED'
+:: Passed test_a_1.
+
+:: Compiling test_a_2.
+make -s first EXTRA_OBJS=test_a_2.o
+:: Running test_a_2.
+Status is 'PASSED'
+:: Passed test_a_2.
+
+:: Compiling test_a_3.
+make -s first EXTRA_OBJS=test_a_3.o
+:: Running test_a_3.
+Status is 'PASSED'
+:: Passed test_a_3.
+
+:: Compiling test_a_4.
+make -s first EXTRA_OBJS=test_a_4.o
+:: Running test_a_4.
+Status is 'PASSED'
+:: Passed test_a_4.
+
+:: Compiling test_a_5.
+make -s first EXTRA_OBJS=test_a_5.o
+:: Running test_a_5.
+Status is 'FAILED'
+:: Failed test_a_5.
+
+:: Compiling test_a_6.
+make -s first EXTRA_OBJS=test_a_6.o
+:: Running test_a_6.
+Status is 'FAILED'
+:: Failed test_a_6.
+
+Failed tests:
+- test_a_5
+- test_a_6
+
+Grade for question : 75/100
+
+
+~ ~ ~
+
+Grade: 75
+
+Details:
+test,grade
+_compiled,1
+_test_one,1
+_test_a_1,1
+_test_a_2,1
+_test_a_3,1
+_test_a_4,1
+_test_a_5,0
+_test_a_6,0
