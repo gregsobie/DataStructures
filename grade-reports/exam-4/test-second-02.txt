@@ -1,0 +1,41 @@
+CD to .. 
+/home/mattox/repos/cs225/fa16-exam4-grading/submissions/sobie2
+###############################
+##                           ##
+##     Grading question      ##
+##                           ##
+###############################
+Grader dir is /home/mattox/repos/cs225/fa16-exam4-grading/code-grading/scripts
+qid is second-02
+variant is
+test_dir is /home/mattox/repos/cs225/fa16-exam4-grading/code-grading/scripts/tests/second-02/
+fullTmpDir = /home/mattox/repos/cs225/fa16-exam4-grading/submissions/sobie2/grade-.Pur
+:: Compiling...
+g++ -std=c++0x -c -g -O0 -Wall -Wextra -Wno-unused-function solution_second.cpp
+solution_second.cpp: In member function ‘void Quadtree::prunish(int, double)’:
+solution_second.cpp:36:34: error: no matching function for call to ‘Quadtree::prunish(Quadtree::QuadtreeNode*&, int&, double&)’
+  prunish(root, tolerance, percent);
+                                  ^
+solution_second.cpp:34:6: note: candidate: void Quadtree::prunish(int, double)
+ void Quadtree::prunish(int tolerance, double percent) {
+      ^~~~~~~~
+solution_second.cpp:34:6: note:   candidate expects 2 arguments, 3 provided
+In file included from solution_second.cpp:2:0:
+quadtree.h:153:10: note: candidate: void Quadtree::prunish(Quadtree::QuadtreeNode*, int, int, double)
+     void prunish(QuadtreeNode * curNode, int tolerance, int res, double percent);
+          ^~~~~~~
+quadtree.h:153:10: note:   candidate expects 4 arguments, 3 provided
+Makefile:20: recipe for target 'solution_second.o' failed
+make: *** [solution_second.o] Error 1
+Could not compile solution_second.o.
+
+Grade for question : 0/100
+
+
+~ ~ ~
+
+Grade: 0
+
+Details:
+test,grade
+_compiled,0
