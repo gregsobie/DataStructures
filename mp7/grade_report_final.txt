@@ -1,0 +1,170 @@
+Grading r60827 by sobie2 committed on Wed Dec  7 00:00:41 CST 2016
+Monad Autograder
+Testing mp7 at 2016-12-07 01:30:46
+
+"Television won't be able to hold on to any market it captures after the first six months. People will soon get tired of staring at a plywood box every night." ~ Darryl Zanuck, 20th Century Fox, 1946
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+addElements1  . . . . . . [5 pts] - passed
+addElements2  . . . . . . [5 pts] - passed
+testFindAndSetUnion1  . . [5 pts] - passed
+testFindAndSetUnion2  . . [5 pts] - passed
+testFindAndSetUnion3  . . [5 pts] - passed
+testMakeSmallMaze . . . . [5 pts] - FAILED: Segmentation fault
+testMakeMazeConnected . . [5 pts] - passed
+testMakeMazeAcyclic . . . [5 pts] - FAILED: unit_tests.cpp:181: Maze has a cycle
+testMakeMazeTree1000  . . [5 pts] - FAILED: unit_tests.cpp:199: Maze has a cycle
+testMakeMazeRandom  . . . [5 pts] - FAILED: unit_tests.cpp:323: Generated the same 50x50 maze twice
+testSolveMazeValidPath  . [5 pts] - FAILED: unit_tests.cpp:344: Solution passes through walls
+testSolutionBottomRow . . [5 pts] - passed
+testSolutionCorrectSquare [5 pts] - FAILED: unit_tests.cpp:386: Didn't end up at the correct bottom-row cell
+testSolveMazeSmall  . . . [5 pts] - FAILED: unit_tests.cpp:404: [solution.size() => 2] != [soln.getSolutionSize() => 3]
+testSolveMazeLarge  . . . [5 pts] - FAILED: unit_tests.cpp:404: [solution.size() => 1398] != [soln.getSolutionSize() => 6768]
+testDrawMazeSmall . . . . [5 pts] - FAILED: Segmentation fault
+testDrawMazeMed . . . . . [5 pts] - FAILED: unit_tests.cpp:438: Assertion (*actualOutput == solnImage) failed
+testDrawMazeLarge . . . . [5 pts] - FAILED: unit_tests.cpp:452: Assertion (*actualOutput == solnImage) failed
+testDrawSolutionMed . . . [5 pts] - FAILED: unit_tests.cpp:467: Assertion (*actualOutput == solnImage) failed
+testDrawSolutionLarge . . [5 pts] - FAILED: unit_tests.cpp:482: Assertion (*actualOutput == solnImage) failed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 35
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+testMakeSmallMaze [5 points]
+Result: FAILED: Segmentation fault
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testMakeMazeAcyclic [5 points]
+Result: FAILED: unit_tests.cpp:181: Maze has a cycle
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testMakeMazeTree1000 [5 points]
+Result: FAILED: unit_tests.cpp:199: Maze has a cycle
+Took 1282ms (15000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testMakeMazeRandom [5 points]
+Result: FAILED: unit_tests.cpp:323: Generated the same 50x50 maze twice
+Took 3ms (10000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testSolveMazeValidPath [5 points]
+Result: FAILED: unit_tests.cpp:344: Solution passes through walls
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testSolutionCorrectSquare [5 points]
+Result: FAILED: unit_tests.cpp:386: Didn't end up at the correct bottom-row cell
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testSolveMazeSmall [5 points]
+Result: FAILED: unit_tests.cpp:404: [solution.size() => 2] != [soln.getSolutionSize() => 3]
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+first 10 steps in solution:
+step 0: actual=0, expected=0
+step 1: actual=1, expected=1
+
+----------------------------------------------------------------
+testSolveMazeLarge [5 points]
+Result: FAILED: unit_tests.cpp:404: [solution.size() => 1398] != [soln.getSolutionSize() => 6768]
+Took 3352ms (15000ms timeout)
+Output:
+----------------------------------------------------------------
+first 10 steps in solution:
+step 0: actual=0, expected=0
+step 1: actual=0, expected=0
+step 2: actual=0, expected=1
+step 3: actual=0, expected=0
+step 4: actual=0, expected=1
+step 5: actual=0, expected=1
+step 6: actual=0, expected=0
+step 7: actual=0, expected=1
+step 8: actual=0, expected=2
+step 9: actual=0, expected=2
+
+----------------------------------------------------------------
+testDrawMazeSmall [5 points]
+Result: FAILED: Segmentation fault
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testDrawMazeMed [5 points]
+Result: FAILED: unit_tests.cpp:438: Assertion (*actualOutput == solnImage) failed
+Took 12ms (10000ms timeout)
+Output:
+----------------------------------------------------------------
+libpng warning: Image width is zero in IHDR
+libpng warning: Image height is zero in IHDR
+libpng error: Invalid IHDR data
+[EasyPNG]: Error writing image header
+
+----------------------------------------------------------------
+testDrawMazeLarge [5 points]
+Result: FAILED: unit_tests.cpp:452: Assertion (*actualOutput == solnImage) failed
+Took 1195ms (15000ms timeout)
+Output:
+----------------------------------------------------------------
+libpng warning: Image width is zero in IHDR
+libpng warning: Image height is zero in IHDR
+libpng error: Invalid IHDR data
+[EasyPNG]: Error writing image header
+
+----------------------------------------------------------------
+testDrawSolutionMed [5 points]
+Result: FAILED: unit_tests.cpp:467: Assertion (*actualOutput == solnImage) failed
+Took 15ms (10000ms timeout)
+Output:
+----------------------------------------------------------------
+libpng warning: Image width is zero in IHDR
+libpng warning: Image height is zero in IHDR
+libpng error: Invalid IHDR data
+[EasyPNG]: Error writing image header
+
+----------------------------------------------------------------
+testDrawSolutionLarge [5 points]
+Result: FAILED: unit_tests.cpp:482: Assertion (*actualOutput == solnImage) failed
+Took 1724ms (15000ms timeout)
+Output:
+----------------------------------------------------------------
+libpng warning: Image width is zero in IHDR
+libpng warning: Image height is zero in IHDR
+libpng error: Invalid IHDR data
+[EasyPNG]: Error writing image header
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 35
+
