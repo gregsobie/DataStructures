@@ -1,0 +1,19 @@
+Exam 5 report for Gregory Sobie
+
+
+                         Problem | Score
+       --------------------------+------
+                    mc-cpp5-001d |   4
+                    mc-cpp5-002e |   4
+                    mc-cpp5-003d |   4
+                    mc-cpp5-005h |   0
+                    mc-cpp5-006i |   4
+                    mc-cpp5-007a |   4
+                    mc-cpp5-008h |   4
+                    mc-cpp5-009e |   4
+       --------------------------+------
+                        first-02 | 2.52 /   9
+                       second-03 | 3.24 /   9
+       --------------------------+------
+                          Total: | 33.76 (=67.52%) 
+
