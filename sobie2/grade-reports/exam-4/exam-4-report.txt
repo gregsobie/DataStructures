@@ -1,15 +1,17 @@
-Exam 4 report for  Gregory  Sobie
-          Problem | Score
-  ----------------+------
-     mc-cpp4-003d |   4
-     mc-cpp4-003k |   4
-     mc-cpp4-004e |   4
-     mc-cpp4-005c |   4
-     mc-cpp4-006c |   4
-     mc-cpp4-007f |   4
-  ----------------+------
-         first-05 | 9.75 / 13
-        second-02 | 0.00 / 13
-  ----------------+------
-Total: 33.75 (=67.50 percent) 
+Exam 4 report for Gregory Sobie
+
+
+                         Problem | Score
+       --------------------------+------
+                    mc-cpp4-003d |   4
+                    mc-cpp4-003k |   4
+                    mc-cpp4-004e |   4
+                    mc-cpp4-005c |   4
+                    mc-cpp4-006c |   4
+                    mc-cpp4-007f |   4
+       --------------------------+------
+                        first-05 | 9.75 /  13
+                       second-02 | 0.00 /  13
+       --------------------------+------
+                          Total: | 33.75 (=67.50%) 
 
